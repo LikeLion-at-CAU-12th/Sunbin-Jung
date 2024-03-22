@@ -7,7 +7,11 @@
 #introduction{
     text-align: center;
     font-family: "Moirai One", system-ui;
-    font-size: 50px;
+    font-size: 60px;
+    border-radius: 30px;
+    width: 70%;
+    margin: auto;
+    background-color: greenyellow;
 }
 
 #title{
@@ -19,16 +23,19 @@
 #container{
     width: 80%;
     border: 6px dotted blueviolet;
-    background-color: white;
+    background-color: blanchedalmond;
     margin: auto;
+    margin-bottom: 50px;
+    box-shadow: 10px 10px 20px 12px darkgrey ;
 }
 
 body{
-    background-color: bisque;
+    background-color: white;
 }
 
 img{
     height: 300px;
+    width: 300px;
     margin-left:10%;
     border-radius: 300px;
     margin-right: 50px;
@@ -37,6 +44,7 @@ img{
 section{
     margin: auto;
     font-size: 30px;
+    margin-bottom: 10px;
 }
 
 .description{
