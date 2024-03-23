@@ -14,31 +14,24 @@
     background-color: greenyellow;
 }
 
-#title{
-    text-align: center;
-    font-family: "Moirai One", system-ui;
-    font-size: 40px;
-}
-
-#container{
-    width: 80%;
-    /* border: 6px dotted orange; */
-    background-color: blanchedalmond;
-    margin: auto;
-    margin-bottom: 50px;
-    box-shadow: 10px 10px 20px 12px darkgrey ;
-}
-
-body{
-    background-color: lightyellow;
-}
-
 img{
     height: 300px;
     width: 300px;
     margin-left:10%;
-    border-radius: 300px;
     margin-right: 50px;
+}
+
+#container{
+    width: 80%;
+    border: 6px dotted orange;
+    background-color: blanchedalmond;
+    margin: auto;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+body{
+    background-color:lightyellow
 }
 
 section{
