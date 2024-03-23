@@ -17,6 +17,7 @@
 #title{
     text-align: center;
     font-family: "Moirai One", system-ui;
+    color: white;
     font-size: 40px;
 }
 
@@ -27,11 +28,16 @@
     margin: auto;
     margin-bottom: 50px;
     box-shadow: 10px 10px 20px 12px darkgrey ;
+    opacity: 0.8;
 }
 
 body{
     background-color: lightyellow;
-}
+    background-image:url(images/레스토랑.jpg);
+    background-position: center; 
+    background-size:cover;
+    background-repeat: no-repeat;
+} 
 
 img{
     height: 300px;
