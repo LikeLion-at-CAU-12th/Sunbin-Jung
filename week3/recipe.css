@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Kirang+Haerang&family=Moirai+One&display=swap');
+
+* {
+    font-family: "Kirang Haerang", system-ui;
+}
+
+#introduction{
+    text-align: center;
+    font-family: "Moirai One", system-ui;
+    font-size: 60px;
+    border-radius: 30px;
+    width: 70%;
+    margin: auto;
+    background-color: greenyellow;
+}
+
+img{
+    height: 300px;
+    width: 300px;
+    margin-left:10%;
+    margin-right: 50px;
+}
+
+#container{
+    width: 80%;
+    border: 6px dotted orange;
+    background-color: blanchedalmond;
+    margin: auto;
+    margin-bottom: 50px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+body{
+    background-image:url("images/요리배경.jpg");
+    background-position: center; 
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+section{
+    margin: auto;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.description{
+    display: inline-block;
+}
+
+p{
+    font-size: 50px;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: brown;
+}
