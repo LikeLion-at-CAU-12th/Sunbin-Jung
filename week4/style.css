@@ -3,14 +3,15 @@
 *{
     font-family: "Noto Serif KR", serif;
 }
+
 #container{
     width: 900vw;
-    height: 450vh;
+    height: 420vh;
     background-color:ghostwhite;
     border-radius: 20px;
     display:flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -23,19 +24,20 @@ body{
 }
   
 header{
+    height: 1rem;
     width: 90%;
-    flex-basis: 10%;
+    flex-basis: 30%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
-    margin-top: -9rem;
+    align-items: baseline;
+    margin-top: 10rem;
 }
 
 #logo{
     background-color: lightpink;
     flex-basis: 23%;
-    height: 30%;
+    height: 50px;
     align-items: center;
     display: flex;
     font-size: 3rem;
@@ -48,7 +50,7 @@ main{
     text-align: center;
     font-size: 3.5rem;
     line-height:7rem;
-    margin-top: -8rem;
+    margin-top: 10rem;
 }
 
 nav{
