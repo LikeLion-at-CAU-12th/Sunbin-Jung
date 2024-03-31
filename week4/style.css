@@ -5,7 +5,7 @@
 }
 #container{
     width: 900vw;
-    height: 500vh;
+    height: 450vh;
     background-color:ghostwhite;
     border-radius: 20px;
     display:flex;
@@ -45,7 +45,7 @@ header{
 
 main{
     text-align: center;
-    font-size: 3rem;
+    font-size: 3.5rem;
     line-height:7rem;
 }
 
@@ -61,7 +61,7 @@ nav{
 
 section{
     text-align: center;
-    margin-top: 8rem;
+    margin-top: 5rem;
 }
 
 a{
