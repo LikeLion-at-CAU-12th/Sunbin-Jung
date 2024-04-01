@@ -3,6 +3,22 @@
 *{
     font-family: "Noto Serif KR", serif;
 }
+#container{
+    width: 100em;
+    height: 45em;
+    background-color:ghostwhite;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main{
+    text-align: center;
+    font-size: 3.5rem;
+    line-height:7rem;
+}
 
 #container_intro{
     width: 100em;
