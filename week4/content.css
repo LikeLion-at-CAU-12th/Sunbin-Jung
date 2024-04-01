@@ -4,9 +4,42 @@
     font-family: "Noto Serif KR", serif;
 }
 
-#container{
+#container_intro{
     width: 100em;
-    height: 45em;
+    height: 40em;
+    background-color:ghostwhite;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#container_hobby{
+    width: 100em;
+    height:60em;
+    background-color:ghostwhite;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#container_fav{
+    width: 100em;
+    height:40em;
+    background-color:ghostwhite;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#container_goal{
+    width: 100em;
+    height:80em;
     background-color:ghostwhite;
     border-radius: 20px;
     display:flex;
@@ -45,12 +78,6 @@ header{
     border-radius: 30px;
 }
 
-main{
-    text-align: center;
-    font-size: 3.5rem;
-    line-height:7rem;
-}
-
 nav{
     font-size: 2.5rem;
     flex-basis: 70%;
@@ -63,7 +90,11 @@ nav{
 
 section{
     text-align: center;
-    margin-top: 5rem;
+}
+
+#introduction {
+    margin-right: 10rem;
+    line-height: 4rem;
 }
 
 a{
@@ -79,6 +110,11 @@ img{
     height: 8rem;
     display: inline-block;
     margin-right: 2rem;
+}
+
+.intro-container {
+    display: flex;
+    justify-content: space-between;
 }
 
 .hobby-container {
