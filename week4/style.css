@@ -5,8 +5,8 @@
 }
 
 #container{
-    width: 900vw;
-    height: 420vh;
+    width: 300em;
+    height: 250em;
     background-color:ghostwhite;
     border-radius: 20px;
     display:flex;
@@ -19,7 +19,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     box-sizing: border-box;
 }
   
@@ -83,15 +83,20 @@ img{
     margin-right: 2rem;
 }
 
-#hobby .hobby-container {
+.hobby-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 1rem;
 }
 
 #hobby img {
     width: 25rem;
     height: 43rem;
+}
+
+#favorite img{
+    width: 20rem;
+    height: 20rem;
 }
 
 #goal img {
