@@ -153,3 +153,38 @@ img{
     width: 40rem;
     height: 25rem;
 }
+@media all and (max-width: 1100px){
+    #container_intro{
+        height: 55em;
+    }
+}
+
+@media all and (max-width: 750px){
+    main{
+        font-size: 2.5rem;
+        line-height:4rem;
+    }
+    #introduction {
+        margin-right: 5rem;
+        line-height: 3rem;
+    }
+    #container_intro{
+        height: 50em;
+    }
+}
+
+@media all and (max-width: 600px){
+    main{
+        font-size: 1.5rem;
+        line-height:4rem;
+    }
+    #introduction div {
+        margin-right: 10rem;
+        line-height: 4rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    img{
+        height: 4rem;
+    }
+}
