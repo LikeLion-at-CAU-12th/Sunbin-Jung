@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
+
+*{
+    font-family: "Noto Serif KR", serif;
+}
+#container{
+    width: 100em;
+    height: 45em;
+    background-color:ghostwhite;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main{
+    text-align: center;
+    font-size: 3.5rem;
+    line-height:7rem;
+}
+
+#container_intro{
+    width: 100em;
+    height: 40em;
+    background-color:ghostwhite;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#container_hobby{
+    width: 100em;
+    height:60em;
+    background-color:ghostwhite;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#container_fav{
+    width: 100em;
+    height:40em;
+    background-color:ghostwhite;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#container_goal{
+    width: 100em;
+    height:80em;
+    background-color:ghostwhite;
+    border-radius: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 100vh; */
+    box-sizing: border-box;
+}
+  
+header{
+    height: 1rem;
+    width: 90%;
+    flex-basis: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#logo{
+    background-color: lightpink;
+    flex-basis: 23%;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    font-size: 3rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+nav{
+    font-size: 2.5rem;
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 80%;
+    align-items: center;
+}
+
+section{
+    text-align: center;
+}
+
+#introduction {
+    margin-right: 10rem;
+    line-height: 4rem;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+h1{
+    font-size: 2rem;
+}
+
+img{
+    height: 8rem;
+    display: inline-block;
+    margin-right: 2rem;
+}
+
+.intro-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hobby-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+#hobby img {
+    width: 25rem;
+    height: 43rem;
+}
+
+#favorite img{
+    width: 20rem;
+    height: 20rem;
+}
+
+#goal img {
+    width: 40rem;
+    height: 25rem;
+}
+
+@media all and (max-width: 1100px){
+    #container_intro{
+        height: 55em;
+    }
+}
+
+@media all and (max-width: 750px){
+    main{
+        font-size: 2.5rem;
+        line-height:4rem;
+    }
+    #introduction {
+        margin-right: 5rem;
+        line-height: 3rem;
+    }
+    #container_intro{
+        height: 50em;
+    }
+}
+
+@media all and (max-width: 600px){
+    main{
+        font-size: 1.5rem;
+        line-height:4rem;
+    }
+    #introduction div {
+        margin-right: 10rem;
+        line-height: 4rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    img{
+        height: 4rem;
+    }
+}
