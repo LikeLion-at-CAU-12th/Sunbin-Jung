@@ -72,3 +72,4 @@ function judgeGame(myChoice){
             return result.innerText = "lose";
         }   
 }
+//
