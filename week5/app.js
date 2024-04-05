@@ -10,7 +10,7 @@ const rockBtn = document.getElementById("rock");
 const scissorsBtn = document.getElementById("scissors");
 const paperBtn = document.getElementById("paper");
 
-const result = document.getElementById("display-result");
+// const result = document.getElementById("display-result");
 
 const myScore = document.getElementById("my-score");
 const comScore = document.getElementById("com-score");
