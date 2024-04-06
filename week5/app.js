@@ -13,6 +13,8 @@ const gameResult = document.getElementById("display-result");
 
 const myScore = document.getElementById("my-score");
 const comScore = document.getElementById("computer-score");
+let myScoreValue = 0;
+let comScoreValue = 0;
 
 const resetBtn = document.getElementById("reset-button");
 const modeBtn =document.getElementById("modeBtn");
@@ -82,18 +84,19 @@ function judgeGame(myChoice, resultArray) {
 function scoring(result) {
     switch (result) {
         case "draw":
-            myScore.innerText = parseInt(myScore.innerText) + 1;
-            comScore.innerText = parseInt(comScore.innerText) + 1;
+            myScoreValue++;
+            comScoreValue++;
             break;
         case "win":
-            myScore.innerText = parseInt(myScore.innerText) + 1;
-            break;
+            myScoreValue++;
         case "lose":
-            comScore.innerText = parseInt(comScore.innerText) + 1;
+            comScoreValue++;
             break;
         default:
             break;
     }
+    myScore.innerText = myScoreValue.toString(); // 숫자를 문자열로 변환하여 할당
+    comScore.innerText = comScoreValue.toString();
 }
 
 function resetGame(){
