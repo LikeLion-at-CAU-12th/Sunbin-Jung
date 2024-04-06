@@ -161,5 +161,8 @@ button {
 }
 
 #mode-container{
-  justify-content:space-between;
+  border: black solid 3px;
+  width: 130px;
+  margin-top: 10px;
+  border-radius: 30%;
 }
