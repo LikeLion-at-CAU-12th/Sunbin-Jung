@@ -12,14 +12,16 @@ const paperBtn = document.getElementById("paper");
 
 const gameResult = document.getElementById("display-result");
 
-const myScore = document.getElementById("my-score");
-const comScore = document.getElementById("com-score");
+const myScore = document.getElementById(".my-score");
+const comScore = document.getElementById(".com-score");
+
+const resetBtn = document.getElementById("reset-button");
 
 //2. 선언한 dom 요소에 이벤트 생성
-
 rockBtn.addEventListener("click",displayMyChoice);
 scissorsBtn.addEventListener("click",displayMyChoice);
 paperBtn.addEventListener("click",displayMyChoice);
+resetBtn.addEventListener("click",resetGame);
 
 //3. 이벤트 발생한 dom 객체에 접근하기
 function displayMyChoice(e){
@@ -60,15 +62,41 @@ function start(myChoice){
     judgeGame(myChoice, resultArray); // 두 번째 인자로 resultArray를 전달
 }
 
-//7. 게임 판단하기
-function judgeGame(myChoice, resultArray){
-    if (myChoice == resultArray[0]) {
+// 7. 게임 판단하기
+function judgeGame(myChoice, resultArray) {
+    if (myChoice === resultArray[0]) {
         gameResult.innerText = "draw";
-    } else if ((myChoice == "rock" && resultArray[0] == "scissors") ||
-               (myChoice == "paper" && resultArray[0] == "rock") ||
-               (myChoice == "scissors" && resultArray[0] == "paper")) {
+        scoring("draw"); // "draw" 문자열 전달
+    } else if ((myChoice === "rock" && resultArray[0] === "scissors") ||
+               (myChoice === "paper" && resultArray[0] === "rock") ||
+               (myChoice === "scissors" && resultArray[0] === "paper")) {
          gameResult.innerText = "win";
+         scoring("win"); // "win" 문자열 전달
     } else {
         gameResult.innerText = "lose";
+        scoring("lose"); // "lose" 문자열 전달
     }
+}
+
+// 8. 점수 처리 함수
+function scoring(result) {
+    switch (result) { // 스코어를 result 매개변수로 받
+        case "draw":
+            myScore.innerText++;
+            comScore.innerText++;
+            break;
+        case "win":
+            myScore.innerText++;
+            break;
+        case "lose":
+            comScore.innerText++;
+            break;
+        default:
+            break;
+    }
+}
+
+function resetGame(e){
+    myScore.innerText="0";
+    comScore.innerText="0";
 }
