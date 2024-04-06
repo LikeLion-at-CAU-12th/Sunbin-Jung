@@ -1,5 +1,4 @@
 //1. js파일에서 접근해야하는 html dom 요소들 선언
-
 const myHandText = document.getElementById("my-hand-text");
 const myHandIcon = document.getElementById("my-hand-icon");
 
@@ -12,10 +11,11 @@ const paperBtn = document.getElementById("paper");
 
 const gameResult = document.getElementById("display-result");
 
-const myScore = document.getElementById(".my-score");
-const comScore = document.getElementById(".com-score");
+const myScore = document.getElementById("my-score");
+const comScore = document.getElementById("computer-score");
 
 const resetBtn = document.getElementById("reset-button");
+const modeBtn =document.getElementById("modeBtn");
 
 //2. 선언한 dom 요소에 이벤트 생성
 rockBtn.addEventListener("click",displayMyChoice);
@@ -80,23 +80,25 @@ function judgeGame(myChoice, resultArray) {
 
 // 8. 점수 처리 함수
 function scoring(result) {
-    switch (result) { // 스코어를 result 매개변수로 받
+    switch (result) {
         case "draw":
-            myScore.innerText++;
-            comScore.innerText++;
+            myScore.innerText = parseInt(myScore.innerText) + 1;
+            comScore.innerText = parseInt(comScore.innerText) + 1;
             break;
         case "win":
-            myScore.innerText++;
+            myScore.innerText = parseInt(myScore.innerText) + 1;
             break;
         case "lose":
-            comScore.innerText++;
+            comScore.innerText = parseInt(comScore.innerText) + 1;
             break;
         default:
             break;
     }
 }
 
-function resetGame(e){
+function resetGame(){
     myScore.innerText="0";
     comScore.innerText="0";
+    computerText.innerText="";
+    computerIcon.className="";
 }
