@@ -70,5 +70,5 @@ function judgeGame(myChoice, resultArray){
          gameResult.innerText = "win";
     } else {
         gameResult.innerText = "lose";
-    }   
+    }
 }
