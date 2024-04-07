@@ -68,7 +68,12 @@ button {
 }
 
 /* section2(경기장) */
-/* //채워보아요 */
+.display-main{
+  flex-basis: auto;
+}
+.display-secton{
+  flex-basis: auto;
+}
 
 /* section3(버튼) */
 .button-section {
@@ -139,6 +144,7 @@ button {
 .title {
   border-bottom: black solid 3px;
 }
+
 .display-secton {
     height: 60%;
     font-size: 45px;
@@ -162,7 +168,43 @@ button {
 
 #mode-container{
   border: black solid 3px;
-  width: 130px;
+  width: 200px;
   margin-top: 10px;
-  border-radius: 30%;
+  border-radius: 10%;
+  text-align: center;
+}
+
+.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark #reset-button {
+  color: #fff;
+}
+
+.dark .contents {
+  border-color: #fff;
+}
+
+.dark .score {
+  color: #fff;
+}
+
+.dark .fa-regular {
+  border-color: #fff;
+}
+
+.dark .title{
+  border-color: #fff;
+}
+
+.dark #display-result {
+  color: #fff;
+}
+
+.dark #mode-container {
+  background-color: black;
+  color: #fff;
+  border-color: #fff;
 }

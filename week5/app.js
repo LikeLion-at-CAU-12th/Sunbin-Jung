@@ -19,11 +19,13 @@ let comScoreValue = 0;
 const resetBtn = document.getElementById("reset-button");
 const modeBtn =document.getElementById("modeBtn");
 
+
 //2. 선언한 dom 요소에 이벤트 생성
 rockBtn.addEventListener("click",displayMyChoice);
 scissorsBtn.addEventListener("click",displayMyChoice);
 paperBtn.addEventListener("click",displayMyChoice);
 resetBtn.addEventListener("click",resetGame);
+modeBtn.addEventListener("click",modeChange);
 
 //3. 이벤트 발생한 dom 객체에 접근하기
 function displayMyChoice(e){
@@ -89,19 +91,27 @@ function scoring(result) {
             break;
         case "win":
             myScoreValue++;
+            break;
         case "lose":
             comScoreValue++;
             break;
         default:
             break;
     }
-    myScore.innerText = myScoreValue.toString(); // 숫자를 문자열로 변환하여 할당
-    comScore.innerText = comScoreValue.toString();
+    myScore.innerText = myScoreValue;
+    comScore.innerText = comScoreValue;
 }
 
+
 function resetGame(){
+    myScoreValue=0;
+    comScoreValue=0;
     myScore.innerText="0";
     comScore.innerText="0";
     computerText.innerText="";
     computerIcon.className="";
+}
+
+function modeChange(){
+    document.body.classList.toggle('dark');
 }
