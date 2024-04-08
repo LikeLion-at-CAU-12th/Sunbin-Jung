@@ -70,9 +70,11 @@ button {
 /* section2(경기장) */
 .display-main{
   flex-basis: auto;
+  justify-content: space-between;
 }
 .display-secton{
   flex-basis: auto;
+  justify-content: space-between;
 }
 
 /* section3(버튼) */

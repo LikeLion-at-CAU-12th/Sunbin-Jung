@@ -70,38 +70,20 @@ function start(myChoice){
 function judgeGame(myChoice, resultArray) {
     if (myChoice === resultArray[0]) {
         gameResult.innerText = "draw";
-        scoring("draw"); // "draw" 문자열 전달
     } else if ((myChoice === "rock" && resultArray[0] === "scissors") ||
                (myChoice === "paper" && resultArray[0] === "rock") ||
                (myChoice === "scissors" && resultArray[0] === "paper")) {
          gameResult.innerText = "win";
-         scoring("win"); // "win" 문자열 전달
+         myScoreValue =+10;
+         myScore.innerText = String(myScoreValue);
+         comScore.innerText = String(comScoreValue);
     } else {
         gameResult.innerText = "lose";
-        scoring("lose"); // "lose" 문자열 전달
+        comScoreValue =+10;
+        myScore.innerText = String(myScoreValue);
+        comScore.innerText = String(comScoreValue);
     }
 }
-
-// 8. 점수 처리 함수
-function scoring(result) {
-    switch (result) {
-        case "draw":
-            myScoreValue++;
-            comScoreValue++;
-            break;
-        case "win":
-            myScoreValue++;
-            break;
-        case "lose":
-            comScoreValue++;
-            break;
-        default:
-            break;
-    }
-    myScore.innerText = myScoreValue;
-    comScore.innerText = comScoreValue;
-}
-
 
 function resetGame(){
     myScoreValue=0;
@@ -110,6 +92,7 @@ function resetGame(){
     comScore.innerText="0";
     computerText.innerText="";
     computerIcon.className="";
+    gameResult.innerText = "";
 }
 
 function modeChange(){
