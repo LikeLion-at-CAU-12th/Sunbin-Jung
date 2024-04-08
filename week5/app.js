@@ -74,13 +74,11 @@ function judgeGame(myChoice, resultArray) {
                (myChoice === "paper" && resultArray[0] === "rock") ||
                (myChoice === "scissors" && resultArray[0] === "paper")) {
          gameResult.innerText = "win";
-         myScoreValue =+10;
+         myScoreValue++;
          myScore.innerText = String(myScoreValue);
-         comScore.innerText = String(comScoreValue);
     } else {
         gameResult.innerText = "lose";
-        comScoreValue =+10;
-        myScore.innerText = String(myScoreValue);
+        comScoreValue++;
         comScore.innerText = String(comScoreValue);
     }
 }
@@ -93,6 +91,8 @@ function resetGame(){
     computerText.innerText="";
     computerIcon.className="";
     gameResult.innerText = "";
+    myHandText.innerText="";
+    myHandIcon.className="";
 }
 
 function modeChange(){
