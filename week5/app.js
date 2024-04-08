@@ -74,11 +74,11 @@ function judgeGame(myChoice, resultArray) {
                (myChoice === "paper" && resultArray[0] === "rock") ||
                (myChoice === "scissors" && resultArray[0] === "paper")) {
          gameResult.innerText = "win";
-         myScoreValue++;
+         myScoreValue+=10;
          myScore.innerText = String(myScoreValue);
     } else {
         gameResult.innerText = "lose";
-        comScoreValue++;
+        comScoreValue+=10;
         comScore.innerText = String(comScoreValue);
     }
 }
