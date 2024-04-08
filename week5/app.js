@@ -83,6 +83,7 @@ function judgeGame(myChoice, resultArray) {
     }
 }
 
+// 8. 리셋 버튼
 function resetGame(){
     myScoreValue=0;
     comScoreValue=0;
@@ -95,6 +96,7 @@ function resetGame(){
     myHandIcon.className="";
 }
 
+// 9. 모드 체인지 버튼
 function modeChange(){
     document.body.classList.toggle('dark');
 }
