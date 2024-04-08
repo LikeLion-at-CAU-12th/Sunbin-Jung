@@ -74,16 +74,26 @@ function judgeGame(myChoice, resultArray) {
                (myChoice === "paper" && resultArray[0] === "rock") ||
                (myChoice === "scissors" && resultArray[0] === "paper")) {
          gameResult.innerText = "win";
-         myScoreValue+=10;
-         myScore.innerText = String(myScoreValue);
+         scoring(gameResult.innerText);
     } else {
         gameResult.innerText = "lose";
-        comScoreValue+=10;
-        comScore.innerText = String(comScoreValue);
+        scoring(gameResult.innerText);
     }
 }
 
-// 8. 리셋 버튼
+// 8. 점수 매기기
+function scoring(result) {
+    switch(result){
+        case "win":
+            myScoreValue+=10; 
+            myScore.innerText = String(myScoreValue);
+        case "lose":
+            comScoreValue+=10;
+            comScore.innerText = String(comScoreValue);
+    }
+}
+
+// 9. 리셋 버튼
 function resetGame(){
     myScoreValue=0;
     comScoreValue=0;
@@ -96,7 +106,7 @@ function resetGame(){
     myHandIcon.className="";
 }
 
-// 9. 모드 체인지 버튼
+// 10. 모드 체인지 버튼
 function modeChange(){
     document.body.classList.toggle('dark');
 }
