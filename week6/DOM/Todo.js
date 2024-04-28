@@ -16,7 +16,6 @@ class Todo{//상속은 안 받음
     }
     getRow(){
         return this.row;
-
     }
     getCompleteBtn(){
         return this.completeBtn.node;
