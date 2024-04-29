@@ -3,7 +3,6 @@ import Complete from "../DOM/Complete.js";
 
 class TodoController {
     constructor(todo) {
-        this.todo = todo;
         this.complete = new Complete(todo);
         this.newTodo = new Todo(todo);
         this.delBtnNode = this.newTodo.getDelBtn();
@@ -11,6 +10,8 @@ class TodoController {
         this.innerNode = this.newTodo.getInnerText();
         this.delBtnNodeComplete = this.complete.getDelBtn();
         this.notComBtnNode = this.complete.getNotComBtn();
+        const allCompleteBtn = document.getElementById("all-complete");
+        const allTodoBtn = document.getElementById("all-todo");
 
         this.delBtnNode.addEventListener('click', () => {
             this.delTodo();
@@ -24,6 +25,12 @@ class TodoController {
         });
         this.delBtnNodeComplete.addEventListener('click', () => {
             this.delComplete();
+        });
+        allCompleteBtn.addEventListener('click',() => {
+            this.allComplete();
+        });
+        allTodoBtn.addEventListener('click',() => {
+            this.allTodo();
         });
     }
     addTodo() {
@@ -44,6 +51,14 @@ class TodoController {
     delComplete(){
         const completeList = document.getElementById("complete-list");
         completeList.removeChild(this.complete.getRow());
+    }
+    allTodo(){
+        this.addTodo();
+        this.delComplete();
+    }
+    allComplete(){
+        this.addComplete();
+        this.delTodo();
     }
 }
 

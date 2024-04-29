@@ -44,7 +44,7 @@ article{
 
 .complete{
     justify-content: center;
-    height: 20%;
+    height: 15%;
     min-height: 150px;
     background-color: #efdf91;
     gap: 20px;
@@ -148,15 +148,6 @@ button{
     background-color: #e20000;
     width: 30px;
     height: 30px;
-}
-
-.done-text{
-    text-decoration: line-through;
-    color: #808080;
-}
-
-.done-btn{
-    background-color: #5e5e5e;
 }
 
 @media all and (max-width:970px){
