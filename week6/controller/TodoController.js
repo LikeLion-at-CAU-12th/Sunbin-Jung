@@ -1,5 +1,5 @@
 import Todo from "../DOM/Todo.js"
-import CompleteController from "./CompleteController.js";
+import Complete from "../DOM/Complete.js";
 
 class TodoController {
     constructor(todo) {
@@ -7,6 +7,7 @@ class TodoController {
         this.delBtnNode = this.newTodo.getDelBtn();
         this.comBtnNode = this.newTodo.getCompleteBtn();
         this.innerNode = this.newTodo.getInnerText();
+        this.notcomBtnNode = this.newTodo.getNotComBtn();
 
         this.delBtnNode.addEventListener('click', () => {
             this.delTodo();
@@ -26,6 +27,17 @@ class TodoController {
         todoList.removeChild(this.newTodo.getRow());
     }
     doneTodo() {
+        const completeList = document.getElementById("complete-list");
+        const input = document.querySelector('input');
+        completeList.removeChild(this.newTodo.getRow());
+    }   
+    addComplete() {
+        const newComplete = new Complete(todoText);
+        const completeList = document.getElementById("complete-list");
+        const todoList = document.getElementById("to-do-list");
+        completeList.appendChild(newComplete.addRow());
+    }
+    /*
         this.innerNode.classList.toggle('done-text');
         this.comBtnNode.classList.toggle('done-btn');
         if (this.innerNode.classList.contains('done-text')) {
@@ -34,7 +46,7 @@ class TodoController {
             const completeList = document.getElementById("complete-list");
             completeList.removeChild(this.newTodo.getRow());
         }
-    }
+        */
     /*
     doneTodo(){
         addComplete();

@@ -5,7 +5,7 @@ class Complete{//상속은 안 받음
     constructor(todo){
         this.row = new Div('','row').node; //innerText를 비워둔 것임
         this.textBox = new Div(todo,'text-box'); //인자를 todo로 받음
-        this.notCompleteBtn = new Button('미완','not-complete-btn');
+        this.notComBtn = new Button('미완','not-comp-btn');
         this.delBtn = new Button('삭제','del-btn');
     }
     addRow(){
