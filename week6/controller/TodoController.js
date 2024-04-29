@@ -2,10 +2,10 @@ import Todo from "../DOM/Todo.js"
 import Complete from "../DOM/Complete.js";
 
 class TodoController {
-    constructor(todo) {
-        this.complete = new Complete(todo);
+    constructor(todo) { //생성자
+        this.complete = new Complete(todo); //매개변수 todo, 새 인스터스 생성
         this.newTodo = new Todo(todo);
-        this.delBtnNode = this.newTodo.getDelBtn();
+        this.delBtnNode = this.newTodo.getDelBtn(); // 버튼 노드들
         this.comBtnNode = this.newTodo.getCompleteBtn();
         this.innerNode = this.newTodo.getInnerText();
         this.delBtnNodeComplete = this.complete.getDelBtn();
