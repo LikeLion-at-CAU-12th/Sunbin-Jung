@@ -1,12 +1,14 @@
-import Button from "./Button.js";
 import Div from "./Div.js";
+import Image from "./Image.js";
 
 class Complete{//상속은 안 받음
     constructor(todo){
         this.row = new Div('','row').node; //innerText를 비워둔 것임
         this.textBox = new Div(todo,'text-box'); //인자를 todo로 받음
-        this.notComBtn = new Button('미완','not-com-btn');
-        this.delBtn = new Button('삭제','del-btn');
+        this.notComBtn = new Image('not-com-btn')
+        this.delBtn = new Image('del-btn');
+        //this.notComBtn = new Button('미완','not-com-btn');
+        //this.delBtn = new Button('삭제','del-btn');
     }
     addRow(){
         [this.textBox, this.notComBtn,this.delBtn].forEach((dom)=>{

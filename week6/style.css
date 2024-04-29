@@ -44,9 +44,10 @@ article{
 
 .complete{
     justify-content: center;
-    height: 15%;
-    min-height: 80px;
+    height: 20%;
+    min-height: 150px;
     background-color: #efdf91;
+    gap: 20px;
 }
 
 #input-box{
@@ -109,22 +110,44 @@ button{
 }
 
 .complete-btn{
+    content: url(image/v.png);
     color: white;
-    background-color: #4d81b1;
+    width: 30px;
+    height: 30px;
 }
 
 .complete-btn:hover{
     cursor: pointer;
     background-color: #c4e2ff;
+    width: 30px;
+    height: 30px;
+}
+
+.not-com-btn{
+    content: url(image/<-.png);
+    color: white;
+    width: 30px;
+    height: 30px;
+}
+
+.not-com-btn:hover{
+    cursor: pointer;
+    background-color: #c4e2ff;
+    width: 30px;
+    height: 30px;
 }
 
 .del-btn{
+    content: url(image/x.png);
     color: white;
-    background-color: #5e5e5e;
+    width: 30px;
+    height: 30px;
 }
 .del-btn:hover{
     cursor: pointer;
     background-color: #e20000;
+    width: 30px;
+    height: 30px;
 }
 
 .done-text{
