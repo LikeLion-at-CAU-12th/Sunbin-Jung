@@ -26,7 +26,7 @@ async function getData(){
 
     const datas = await toJson.response.body.items.item;
     //console.log(datas);
-
+    
     datas.map((data,i)=>{
         const infolist = document.createElement('div');
         infolist.id = 'infolist';
