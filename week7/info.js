@@ -13,13 +13,11 @@ const option = {
     pageNo:1
   };
 
-  let count = -1;
 
 async function getData(){
     const random = Math.floor(Math.random()*100 +1);
     const url = `${baseURL}/galleryList1?numOfRows=${option.numofRows}&MobileApp=${option.MobileApp}&MobileOS=${option.MobileOS}&arrange=${option.arrange}&_type=${option._type}&pageNo=${random}&serviceKey=${option.serviceKey}`;
 
-    count ++;
     const fetchData = await fetch(url);
     //console.log(fetchData);
 
@@ -30,11 +28,11 @@ async function getData(){
     //console.log(datas);
 
     datas.map((data,i)=>{
-        const list = document.createElement('div');
-        list.id = 'list';
+        const infolist = document.createElement('div');
+        infolist.id = 'infolist';
 
-        const image = document.createElement('img');
-        image.src = data.galWebImageUrl;
+        //const image = document.createElement('img');
+        //image.src = data.galWebImageUrl;
 
         const info = document.createElement('span');
         info.innerText = `
