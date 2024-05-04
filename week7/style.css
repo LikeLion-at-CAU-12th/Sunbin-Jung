@@ -6,7 +6,7 @@ body {
     width: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap : 10px
+    gap : 10px;
   }
   
   #list {
@@ -23,4 +23,27 @@ body {
     width: 90%;
     height: 200px;
     object-fit: cover;
+  }
+
+  #infolist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  #info-container {
+    width: 90%;
+    display: grid;
+    background-color: white;
+    height: 90%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #title{
+    align-items: center;
   }

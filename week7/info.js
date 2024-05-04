@@ -31,7 +31,7 @@ async function getData(){
 
     const image = document.createElement('img');
     image.src = data.galWebImageUrl;
-    
+
     const time = document.createElement('time');
     const paDate = data.galCreatedtime.slice(0,10);
     const year = paDate.substring(0, 4);
@@ -52,6 +52,6 @@ async function getData(){
     infolist.appendChild(info);
     container.appendChild(infolist);
     infolist.appendChild(time);
-    
+
   });
 }
