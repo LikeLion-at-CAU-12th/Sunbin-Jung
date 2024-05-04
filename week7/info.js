@@ -27,7 +27,7 @@ async function getData(){
     infodatas.map((data,i)=>{
         const infolist = document.createElement('div');
         infolist.id = 'infolist';
-        title.innerText = `⋰˚☆ ${data.galTitle} ☆彡`
+        title.innerText = `*⁀➷♥ ${data.galTitle}˚₊·—̳͟͞͞♥`
 
         const image = document.createElement('img');
         image.src = data.galWebImageUrl;
@@ -38,12 +38,9 @@ async function getData(){
         제목 : ${data.galTitle}
         장소 : ${data.galPhotographyLocation}`;
 
-        
-      });
-
         infolist.appendChild(image);
         infolist.appendChild(info);
-
         container.appendChild(infolist);
-    })
+      });
+    
 }
