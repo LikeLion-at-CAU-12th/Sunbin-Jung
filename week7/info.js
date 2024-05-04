@@ -2,6 +2,8 @@ const baseURL = "https://apis.data.go.kr/B551011/PhotoGalleryService1";
 
 const container = document.getElementById('container');
 
+const title = document.getElementById('title');
+
 const option = {
     serviceKey:
       "b2OeYGgxuEBrmCA5rHwiL7PKTn0Z3IcQs97DKh9ZszZLUMp%2B93lwFIHutfHDDCT1pW0Sohagp8kFomEdpHNIZg%3D%3D",
@@ -10,29 +12,25 @@ const option = {
     MobileOS: "ETC",
     arrange: "A",
     _type: "json",
-    pageNo:1
+    pageNo:33
   };
 
+  let count = -1;
 
 async function getData(){
-    const random = Math.floor(Math.random()*100 +1);
-    const url = `${baseURL}/galleryList1?numOfRows=${option.numofRows}&MobileApp=${option.MobileApp}&MobileOS=${option.MobileOS}&arrange=${option.arrange}&_type=${option._type}&pageNo=${random}&serviceKey=${option.serviceKey}`;
-
+    const url = `${baseURL}/galleryList1?numOfRows=${option.numofRows}&MobileApp=${option.MobileApp}&MobileOS=${option.MobileOS}&arrange=${option.arrange}&_type=${option._type}&pageNo=${option.pageNo}&serviceKey=${option.serviceKey}`;
+    count ++;
     const fetchData = await fetch(url);
-    //console.log(fetchData);
-
     const toJson = await fetchData.json();
-    //console.log(toJson);
-
-    const datas = await toJson.response.body.items.item;
-    //console.log(datas);
+    const infodatas = await toJson.response.body.items.item;
     
-    datas.map((data,i)=>{
+    infodatas.map((data,i)=>{
         const infolist = document.createElement('div');
         infolist.id = 'infolist';
+        title.innerText = `⋰˚☆ ${data.galTitle} ☆彡`
 
-        //const image = document.createElement('img');
-        //image.src = data.galWebImageUrl;
+        const image = document.createElement('img');
+        image.src = data.galWebImageUrl;
 
         const info = document.createElement('span');
         info.innerText = `
@@ -40,16 +38,12 @@ async function getData(){
         제목 : ${data.galTitle}
         장소 : ${data.galPhotographyLocation}`;
 
-        const button = document.createElement('button');
-        button.innerText="더보기";
-        button.addEventListener('click', async () => {
-          
+        
       });
 
-        list.appendChild(image);
-        list.appendChild(info);
-        list.appendChild(button);
+        infolist.appendChild(image);
+        infolist.appendChild(info);
 
-        container.appendChild(list);
+        container.appendChild(infolist);
     })
 }

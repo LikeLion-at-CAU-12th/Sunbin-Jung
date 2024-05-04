@@ -10,14 +10,14 @@ const option = {
     MobileOS: "ETC",
     arrange: "A",
     _type: "json",
-    pageNo:1
+    pageNo:33
   };
 
   let count = -1;
 
 async function getData(){
-    const random = Math.floor(Math.random()*100 +1);
-    const url = `${baseURL}/galleryList1?numOfRows=${option.numofRows}&MobileApp=${option.MobileApp}&MobileOS=${option.MobileOS}&arrange=${option.arrange}&_type=${option._type}&pageNo=${random}&serviceKey=${option.serviceKey}`;
+    // const random = Math.floor(Math.random()*100 +1);
+    const url = `${baseURL}/galleryList1?numOfRows=${option.numofRows}&MobileApp=${option.MobileApp}&MobileOS=${option.MobileOS}&arrange=${option.arrange}&_type=${option._type}&pageNo=${option.pageNo}&serviceKey=${option.serviceKey}`;
 
     count ++;
     const fetchData = await fetch(url);
@@ -45,7 +45,14 @@ async function getData(){
         const button = document.createElement('button');
         button.innerText="더보기";
         button.addEventListener('click', async () => {
-          
+          button.addEventListener('click', () => {
+            // 현재 아이템의 정보를 가져오기
+            const currentItem = datas[i];
+            // 가져온 정보를 이용하여 쿼리스트링을 생성
+            const queryString = `?galTitle=${encodeURIComponent(currentItem.galTitle)}&galPhotographyLocation=${encodeURIComponent(currentItem.galPhotographyLocation)}&galWebImageUrl=${encodeURIComponent(currentItem.galWebImageUrl)}`;
+            // info.html로 이동
+            window.location.href = `info.html${queryString}`;
+        });
       });
 
         list.appendChild(image);
