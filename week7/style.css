@@ -2,7 +2,7 @@ body {
     background-color: #e2e2e2;
   }
   
-  #container {
+  #container,#info-container {
     width: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -33,15 +33,6 @@ body {
     background-color: white;
     padding-top: 20px;
     padding-bottom: 20px;
-  }
-
-  #info-container {
-    width: 90%;
-    display: grid;
-    background-color: white;
-    height: 90%;
-    align-items: center;
-    justify-content: center;
   }
 
   #title{

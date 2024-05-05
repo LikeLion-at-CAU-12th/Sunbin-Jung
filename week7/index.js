@@ -37,10 +37,9 @@ async function getData(){
         image.src = data.galWebImageUrl;
 
         const info = document.createElement('span');
-        info.innerText = `
-        📍 ${i+1 + 5*count}번째 사진
-        제목 : ${data.galTitle}
-        장소 : ${data.galPhotographyLocation}`;
+        info.innerText = `📍 ${i+1 + 5*count}번째 사진
+        📸 제목 : ${data.galTitle}
+        🏝️ 장소 : ${data.galPhotographyLocation}`;
 
         const button = document.createElement('button');
         button.innerText = "더보기";
@@ -51,8 +50,8 @@ async function getData(){
           const queryString = `?galTitle=${encodeURIComponent(currentItem.galTitle)}&galPhotographyLocation=${encodeURIComponent(currentItem.galPhotographyLocation)}&galWebImageUrl=${encodeURIComponent(currentItem.galWebImageUrl)}`;
           // info.html로 이동
           window.location.href = `info.html${queryString}`;
-      });
-      
+          getinfoData(datas[i]);
+        });
 
         list.appendChild(image);
         list.appendChild(info);
