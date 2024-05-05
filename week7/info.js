@@ -22,10 +22,15 @@ async function getinfoData(currentItem){
   &galPhotographyLocation=${encodeURIComponent(currentItem.galPhotographyLocation)}
   &galWebImageUrl=${encodeURIComponent(currentItem.galWebImageUrl)}`;
   // Define the URL with the queryString
-  const url = `info.html${queryString}`;
+  const url = new URL(`info.html${queryString}`);
 
-  //const url =`${baseURL}/galleryList1?numOfRows=${option.numofRows}&MobileApp=${option.MobileApp}&MobileOS=${option.MobileOS}&arrange=${option.arrange}&_type=${option._type}&pageNo=${option.pageNo}&serviceKey=${option.serviceKey}`;
-  //count ++;
+  /*const url =`${baseURL}/galleryList1?numOfRows=${option.numofRows}
+  &MobileApp=${option.MobileApp}
+  &MobileOS=${option.MobileOS}
+  &arrange=${option.arrange}&_type=${option._type}
+  &pageNo=${option.pageNo}&serviceKey=${option.serviceKey}`;
+  */
+ 
   const fetchData = await fetch(url);
   const toJson = await fetchData.json();
   const infodatas = await toJson.response.body.items.item;
