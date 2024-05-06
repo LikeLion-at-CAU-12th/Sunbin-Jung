@@ -56,9 +56,8 @@ async function getData(){
           &galSearchKeyword=${encodeURIComponent(currentItem.galSearchKeyword)}`;
           // info.html로 이동
           window.open(`info.html${queryString}`, '_blank');
-          getinfoData(datas[i]);
         });
-        
+
         list.appendChild(image);
         list.appendChild(info);
         list.appendChild(button);
