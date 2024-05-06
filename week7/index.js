@@ -55,7 +55,7 @@ async function getData(){
           &galPhotographer=${encodeURIComponent(currentItem.galPhotographer)}
           &galSearchKeyword=${encodeURIComponent(currentItem.galSearchKeyword)}`;
           // info.html로 이동
-          window.location.href = `info.html${queryString}`;
+          window.open(`info.html${queryString}`, '_blank');
           getinfoData(datas[i]);
         });
 

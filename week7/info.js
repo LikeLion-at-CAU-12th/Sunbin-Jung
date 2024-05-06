@@ -38,7 +38,7 @@ const getinfoData = async (data) => {
   container.appendChild(infolist);
   infolist.appendChild(image);
   infolist.appendChild(info);
-  infolist.appendChild(button);
+  // infolist.appendChild(button);
 
   
 };
