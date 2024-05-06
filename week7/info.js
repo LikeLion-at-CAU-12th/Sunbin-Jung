@@ -21,11 +21,12 @@ const getinfoData = async (data) => {
   const day = paDate.slice(6, 8);
 
   const parsedTime = new Date(`${year}/${month}/${day}`);
-  time.innerText = parsedTime.toLocaleString();
+  time.innerText = parsedTime.toLocaleDateString();
+
   const info = document.createElement('span');
   info.innerText = `
     🏝️ 장소 : ${data.galPhotographyLocation}
-    📅 날짜 : ${parsedTime.toLocaleString()}
+    📅 날짜 : ${parsedTime.toLocaleDateString()}
     📸 촬영자 : ${data.galPhotographer}
     🗝️ 키워드 : ${data.galSearchKeyword}`;
 
