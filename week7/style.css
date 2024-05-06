@@ -14,6 +14,7 @@ body {
     display: grid;
     gap : 10px;
     height: 40rem;
+    font-size: 20px;
   }
   
   #list {
@@ -28,7 +29,6 @@ body {
   
   img {
     width: 90%;
-    height: 50%;
     object-fit: cover;
   }
 
