@@ -51,11 +51,3 @@ body {
     flex-direction: row;
     gap: 30px;
   }
-
-  #ogi {
-    float: left;
-  }
-
-  #buteo {
-    float: right;
-  } 
