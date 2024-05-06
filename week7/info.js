@@ -1,5 +1,5 @@
 const getinfoData = async (data) => {
-  const container = document.getElementById('container');
+  const container = document.getElementById('info-container');
   const infolist = document.createElement('div');
   infolist.id = 'infolist';
   title.innerText = `*⁀➷♥ ${data.galTitle}˚₊·—̳͟͞͞♥`;
@@ -35,12 +35,12 @@ const getinfoData = async (data) => {
     // 이전 페이지로 돌아가기
     window.history.back();
   });
-
-  container.appendChild(image);
-  container.appendChild(info);
-  container.appendChild(button);
-
   container.appendChild(infolist);
+  infolist.appendChild(image);
+  infolist.appendChild(info);
+  infolist.appendChild(button);
+
+  
 };
 
 // 페이지가 로드될 때 쿼리스트링 파라미터를 추출하여 데이터 가져오기

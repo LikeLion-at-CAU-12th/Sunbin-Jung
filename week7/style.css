@@ -2,11 +2,18 @@ body {
     background-color: #e2e2e2;
   }
   
-  #container,#info-container {
+  #container {
     width: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap : 10px;
+  }
+
+  #info-container {
+    width: 90%;
+    display: grid;
+    gap : 10px;
+    height: 40rem;
   }
   
   #list {
@@ -21,7 +28,6 @@ body {
   
   img {
     width: 90%;
-    height: 200px;
     object-fit: cover;
   }
 
