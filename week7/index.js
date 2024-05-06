@@ -10,14 +10,14 @@ const option = {
     MobileOS: "ETC",
     arrange: "A",
     _type: "json",
-    pageNo:33
+    pageNo:1
   };
 
   let count = -1;
 
 async function getData(){
-    // const random = Math.floor(Math.random()*100 +1);
-    const url = `${baseURL}/galleryList1?numOfRows=${option.numofRows}&MobileApp=${option.MobileApp}&MobileOS=${option.MobileOS}&arrange=${option.arrange}&_type=${option._type}&pageNo=${option.pageNo}&serviceKey=${option.serviceKey}`;
+    const random = Math.floor(Math.random()*100 +1);
+    const url = `${baseURL}/galleryList1?numOfRows=${option.numofRows}&MobileApp=${option.MobileApp}&MobileOS=${option.MobileOS}&arrange=${option.arrange}&_type=${option._type}&pageNo=${random}&serviceKey=${option.serviceKey}`;
 
     count ++;
     const fetchData = await fetch(url);
