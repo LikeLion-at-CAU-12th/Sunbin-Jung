@@ -2,6 +2,7 @@ const getinfoData = async (data) => {
   const container = document.getElementById('info-container');
   const infolist = document.createElement('div');
   infolist.id = 'infolist';
+  const title = document.getElementById('title');
   title.innerText = `*⁀➷♥ ${data.galTitle}˚₊·—̳͟͞͞♥`;
   
   const queryString = `?galTitle=${encodeURIComponent(data.galTitle)}
