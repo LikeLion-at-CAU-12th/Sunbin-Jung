@@ -51,18 +51,24 @@ window.onload = () => {
   const galPhotographyLocation = urlParams.get('galPhotographyLocation');
   const galWebImageUrl = urlParams.get('galWebImageUrl');
   const galCreatedtime = urlParams.get('galCreatedtime');
+  const galPhotographer = urlParams.get('galPhotographer');
+  const galSearchKeyword = urlParams.get('galSearchKeyword');
 
   const data = {
     galTitle: galTitle,
     galPhotographyLocation: galPhotographyLocation,
     galWebImageUrl: galWebImageUrl,
-    galCreatedtime: galCreatedtime
+    galCreatedtime: galCreatedtime,
+    galPhotographer: galPhotographer,
+    galSearchKeyword: galSearchKeyword
   };
-
+  getinfoData(data);
+  /*
   if (galTitle && galPhotographyLocation && galWebImageUrl && galCreatedtime) {
     getinfoData(data);
   } else {
     // 쿼리스트링 파라미터가 유효하지 않을 경우 예외 처리
     console.error('Invalid query parameters.');
   }
+  */
 };

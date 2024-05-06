@@ -48,7 +48,7 @@ async function getData(){
           // 현재 아이템의 정보를 가져오기
           const currentItem = datas[i];
           // 가져온 정보를 이용하여 쿼리스트링을 생성
-          const queryString = `?galTitle=${encodeURIComponent(currentItem.galTitle)}
+          const queryString = `?galTitle=${encodeURIComponent(currentItem.galTitle)} 
           &galPhotographyLocation=${encodeURIComponent(currentItem.galPhotographyLocation)}
           &galWebImageUrl=${encodeURIComponent(currentItem.galWebImageUrl)}
           &galCreatedtime=${encodeURIComponent(currentItem.galCreatedtime)}
