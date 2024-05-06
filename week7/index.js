@@ -58,7 +58,7 @@ async function getData(){
           window.open(`info.html${queryString}`, '_blank');
           getinfoData(datas[i]);
         });
-
+        
         list.appendChild(image);
         list.appendChild(info);
         list.appendChild(button);
