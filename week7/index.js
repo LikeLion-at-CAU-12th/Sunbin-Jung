@@ -51,7 +51,9 @@ async function getData(){
           const queryString = `?galTitle=${encodeURIComponent(currentItem.galTitle)}
           &galPhotographyLocation=${encodeURIComponent(currentItem.galPhotographyLocation)}
           &galWebImageUrl=${encodeURIComponent(currentItem.galWebImageUrl)}
-          &galCreatedtime=${encodeURIComponent(currentItem.galCreatedtime)}`;
+          &galCreatedtime=${encodeURIComponent(currentItem.galCreatedtime)}
+          &galPhotographer=${encodeURIComponent(currentItem.galPhotographer)}
+          &galSearchKeyword=${encodeURIComponent(currentItem.galSearchKeyword)}`;
           // info.html로 이동
           window.location.href = `info.html${queryString}`;
           getinfoData(datas[i]);
