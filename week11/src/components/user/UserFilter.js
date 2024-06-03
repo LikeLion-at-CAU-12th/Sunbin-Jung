@@ -8,9 +8,8 @@ const UserFilter = ({ setFilter, setUserData, setCurPage }) => {
 
   const handleClick = async (type, param) => {
     if (type === "all") {
-      const response = await getPerPage(1);
-      setUserData(response);
-      setCurPage(1);
+        const response = await getPerPage(0);
+        setUserData(response.slice(0, 6)); // 6개만 보이도록 slice
     } else if (type === "gender") {
       const response = await getGenderUser(param);
       setUserData(response);
@@ -21,7 +20,7 @@ const UserFilter = ({ setFilter, setUserData, setCurPage }) => {
       setCurPage(1);
     }
     setFilter(param);
-    setActiveFilter(param); // Update the active filter
+    setActiveFilter(param); // active filter
   }
 
   return (
