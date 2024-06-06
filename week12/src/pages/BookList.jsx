@@ -55,12 +55,6 @@ const MenuDom = styled.div`
 `;
 
 const Title = styled.div`
-    @font-face {
-        font-family: 'HSSanTokki20-Regular';
-        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405@1.0/HSSanTokki20-Regular.woff2') format('woff2');
-        font-weight: normal;
-        font-style: normal;
-    }
   font-size: 40px;
   color: #535353;
   font-weight: 700;
