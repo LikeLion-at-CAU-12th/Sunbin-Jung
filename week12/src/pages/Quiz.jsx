@@ -1,35 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Questions from './Questions.jsx';
 
-const Quiz = (num) => {
+const Quiz = () => {
     const navigate = useNavigate();
-    const goToHome = () => {
-        navigate("/");
-    }
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const goBefore = () => {
-        navigate("/{num-1}")
+        if(currentIndex===0){
+            navigate("/");
+        }
+        else{
+            setCurrentIndex(currentIndex - 1);
+        }
+    }
+
+    const goNext = () => {
+        setCurrentIndex(currentIndex + 1);
     }
 
   return (
-    // if(num===1){
-    // <QuizDom>
-    //     <h1>당신은 멋잘알인가요?</h1>
-    //     <ButtonDom>
-    //         <Button onClick={goBefore}>뒤로 가기</Button>
-    //         <Button>다음 문제</Button>
-    //     </ButtonDom>
-    // </QuizDom>
-    // }
     <QuizDom>
         <h1>당신은 멋잘알인가요?</h1>
-        <Questions></Questions>
-        <ButtonDom>
-            <Button onClick={goToHome}>뒤로 가기</Button>
-            <Button>다음 문제</Button>
-        </ButtonDom>
+      <Questions currentIndex={currentIndex}></Questions>
+      <ButtonDom>
+        <Button onClick={goBefore}>뒤로 가기</Button>
+        <Button onClick={goNext}>다음 문제</Button>
+      </ButtonDom>
     </QuizDom>
   )
 }
