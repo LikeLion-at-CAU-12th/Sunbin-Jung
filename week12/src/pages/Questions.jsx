@@ -1,19 +1,26 @@
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import { getQuestion } from '../apis/apis';
 
 const Questions = ({ currentIndex }) => {
   const [data, setData] = useState([]);
+  const [answers, setAnswers] = useState([1, 1, 1, 1, 1]);
   
+  const handleClick = async (answers) => {
+    const finalanswers=[answers[0],answers[1],answers[2],answers[3],answers[4]]
+    setAnswers(finalanswers);
+  }
+
   useEffect(()=> {
     const fetchData = async () => {
       const response = await getQuestion();
       setData(response.questions);
     };
 
-    fetchData();
+    fetchData(setAnswers);
   },[])
 
+  
   return (
     <QuestionDom>
       {data.length > 0 ? (
@@ -21,7 +28,14 @@ const Questions = ({ currentIndex }) => {
           <Question>Q{currentIndex + 1} : {data[currentIndex].question}</Question>
           <ul>
             {data[currentIndex].choices.map((choice, idx) => (
-              <Choices key={idx}>{choice} </Choices>
+              <ChoiceLabel key={idx}>
+              <ChoiceInput 
+                type="checkbox" 
+                checked={answers[currentIndex] === idx} 
+                onChange={() => handleClick(currentIndex, idx)} 
+              />
+              {choice}
+            </ChoiceLabel>
             ))}
           </ul>
         </>
@@ -29,8 +43,7 @@ const Questions = ({ currentIndex }) => {
         <div>불러오는 중 🐠</div>
       )}
     </QuestionDom>
-    
-  )
+    )
 }
 
 export default Questions
@@ -61,7 +74,7 @@ const Question = styled.div`
   margin-bottom: 35px;
 `;
 
-const Choices = styled.button`
+const Choices = styled.input`
   font-family: 'Ownglyph_meetme-Rg';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
   font-weight: lighter;
@@ -86,5 +99,36 @@ const Choices = styled.button`
   &:active {
       background-color: pink;
   }
+  `
 
+  const ChoiceLabel = styled.label`
+  font-family: 'Ownglyph_meetme-Rg';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+  font-weight: lighter;
+  font-style: normal;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 300px;
+  border-radius: 30px;
+  background-color: #d9bbf5;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  &:hover {
+      background-color: #e98ab5;
+  }
+
+  &:active {
+      background-color: pink;
+  }
+`;
+
+const ChoiceInput = styled.input`
+  margin-right: 10px;
+  cursor: pointer;
 `;

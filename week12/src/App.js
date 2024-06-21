@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import BookList from "./pages/BookList";
 import BookDetail from "./pages/BookDetail";
 import Quiz from "./pages/Quiz";
+import Result from "./pages/Result";
 
 //enter눌러야 import됨
 
@@ -16,6 +17,7 @@ function App() {
           <Route path=":id" element={<BookDetail/>} /> // books/:id 아니어도 됨
         </Route>
         <Route path="/quiz" element={<Quiz/>}></Route>
+        <Route path="/result" element={<Result/>}></Route>
       </Routes>
     </AppDom>
   );

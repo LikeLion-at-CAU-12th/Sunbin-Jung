@@ -18,7 +18,7 @@ const Quiz = () => {
 
     const goNext = () => {
         if(currentIndex===4){
-
+          navigate("/result");
         }
         else{
             setCurrentIndex(currentIndex + 1);
