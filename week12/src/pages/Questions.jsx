@@ -1,26 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getQuestion } from '../apis/apis';
+import Result from './Result';
+import { useNavigate } from 'react-router-dom';
 
 const Questions = ({ currentIndex }) => {
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [answers, setAnswers] = useState([0, 0, 0, 0, 0]);
   
   const handleClick = (questionIndex, choiceIndex) => {
     const newAnswers = [...answers];
-    newAnswers[questionIndex] = choiceIndex;
+    newAnswers[questionIndex] = choiceIndex+1;
     setAnswers(newAnswers);
   }
-
+  
   useEffect(() => {
     const fetchData = async () => {
       const response = await getQuestion();
       setData(response.questions);
     };
-
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const areAllAnswersNonZero = answers.every(answer => answer !== 0);
+    if (areAllAnswersNonZero) {
+      navigate('/result', { state: { answers } });
+    }
+  }, [answers, navigate]);
+  
   return (
     <QuestionDom>
       {data.length > 0 ? (
@@ -33,13 +42,14 @@ const Questions = ({ currentIndex }) => {
                   type="radio"
                   name={`${currentIndex}`}
                   value={`${idx}`}
-                  checked={answers[currentIndex] === idx}
+                  checked={answers[currentIndex] === idx+1}
                   onChange={() => handleClick(currentIndex, idx)}
                 />
                 {choice}
               </ChoiceLabel>
             ))}
           </ul>
+          
         </>
       ) : (
         <h1>불러오는 중 🐠</h1>

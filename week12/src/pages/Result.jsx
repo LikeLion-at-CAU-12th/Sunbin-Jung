@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { getResult, postResult } from '../apis/apis';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const Result = ({ answers }) => {
+const Result = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { answers } = location.state || { answers: [] };
   const [correctCount, setCorrectCount] = useState(null);
-  const [data, setData] = useState(null);
   const [resultImg, setResultImg] = useState('');
   const [resultTitle, setResultTitle] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await postResult(answers);
+      const result = await postResult({ answers });
       setCorrectCount(result.correctCount);
     };
 
@@ -23,19 +24,14 @@ const Result = ({ answers }) => {
     if (correctCount !== null) {
       const fetchResultData = async () => {
         const response = await getResult(correctCount);
-        setData(response.data);
+        setResultImg(response.resultImg);
+        setResultTitle(response.resultTitle);
       };
 
       fetchResultData();
     }
   }, [correctCount]);
 
-  useEffect(() => {
-    if (data) {
-      setResultImg(data.resultImg);
-      setResultTitle(data.resultTitle);
-    }
-  }, [data]);
 
   const goHome = () => {
     navigate("/");
@@ -44,8 +40,7 @@ const Result = ({ answers }) => {
   return (
     <>
       <ResultDom>
-        <h1>당신의 점수는?</h1>
-        <h1>{resultTitle}</h1>
+        <h1>당신의 점수는? {resultTitle}</h1>
         <img src={resultImg} alt="Result" />
       </ResultDom>
       <Button onClick={goHome}>🏠</Button>
