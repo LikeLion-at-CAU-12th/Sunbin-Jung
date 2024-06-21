@@ -6,9 +6,10 @@ const Questions = ({ currentIndex }) => {
   const [data, setData] = useState([]);
   const [answers, setAnswers] = useState([1, 1, 1, 1, 1]);
   
-  const handleClick = async (answers) => {
-    const finalanswers=[answers[0],answers[1],answers[2],answers[3],answers[4]]
-    setAnswers(finalanswers);
+  const handleClick = (questionIndex, choiceIndex) => {
+    const newAnswers = [...answers];
+    newAnswers[questionIndex] = choiceIndex;
+    setAnswers(newAnswers);
   }
 
   useEffect(()=> {
@@ -17,30 +18,30 @@ const Questions = ({ currentIndex }) => {
       setData(response.questions);
     };
 
-    fetchData(setAnswers);
+    fetchData();
   },[])
 
-  
   return (
     <QuestionDom>
-      {data.length > 0 ? (
+      { data.length > 0 ? (
         <>
           <Question>Q{currentIndex + 1} : {data[currentIndex].question}</Question>
           <ul>
             {data[currentIndex].choices.map((choice, idx) => (
               <ChoiceLabel key={idx}>
-              <ChoiceInput 
-                type="checkbox" 
-                checked={answers[currentIndex] === idx} 
-                onChange={() => handleClick(currentIndex, idx)} 
-              />
-              {choice}
-            </ChoiceLabel>
+                <ChoiceInput 
+                  type="radio"
+                  name={`${currentIndex}`} //currentIndex 중에
+                  value={`${idx}`} //하나만 선택되도록
+                  onChange={() => handleClick(currentIndex, idx)} // 선택 변경 시 handleClick 호출
+                />
+                {choice}
+              </ChoiceLabel>
             ))}
           </ul>
         </>
       ) : (
-        <div>불러오는 중 🐠</div>
+        <h1>불러오는 중 🐠</h1>
       )}
     </QuestionDom>
     )
@@ -74,34 +75,7 @@ const Question = styled.div`
   margin-bottom: 35px;
 `;
 
-const Choices = styled.input`
-  font-family: 'Ownglyph_meetme-Rg';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
-  font-weight: lighter;
-  font-style: normal;
-  font-size: 2rem;
-  letter-spacing: 3px;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  width: 300px;
-  border-radius: 30px;
-  background-color: #d9bbf5;
-  padding: 10px;
-  transition: background-color 0.3s ease;
-  &:hover {
-      background-color: #e98ab5;
-  }
-
-  &:active {
-      background-color: pink;
-  }
-  `
-
-  const ChoiceLabel = styled.label`
+const ChoiceLabel = styled.label`
   font-family: 'Ownglyph_meetme-Rg';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
   font-weight: lighter;
