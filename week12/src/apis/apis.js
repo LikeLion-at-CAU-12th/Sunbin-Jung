@@ -8,12 +8,12 @@ export const getQuestion = async() => {
 }
 
 export const postResult = async() => {
-    const response = await axios.get(`${baseURL}/liontesst/result}`);
+    const response = await axios.post(`${baseURL}/liontest/result`);
     return response.data;
 }
 
-export const getResult = async(corretCount) => {
-    const response = await axios.get(`${baseURL}/liontesst/result/${corretCount}}`);
+export const getResult = async(correctCount) => {
+    const response = await axios.get(`${baseURL}/liontest/result/${correctCount}}`);
     return response.data;
 }
 

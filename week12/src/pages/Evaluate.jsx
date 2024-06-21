@@ -1,19 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { postResult } from '../apis/apis';
+import Result from './Result';
 
-const Evaluate = ()  => {
+const Evaluate = ({answers})  => {
+    const [correctCount, setCorrectCount] = useState(null);
 
     useEffect(()=> {
         const fetchData = async () => {
-        const response = await postResult();
-        postResult(response.answerBody);
+            const result = await postResult(answers);
+            setCorrectCount(result.correctCount);
         };
     
         fetchData();
-     },[])
+     },[answers]);
 
   return (
-    <div></div>
+    <>
+    {correctCount !== null && <Result correctCount={correctCount} />}
+    </>
   )
 }
 

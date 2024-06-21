@@ -3,7 +3,7 @@ import { getResult } from '../apis/apis';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-const Result = () => {
+const Result = (correctCount) => {
   const navigate = useNavigate();
   const [data,setData] = useState([]);
   const [resultImg, setResultImg] = useState('');
@@ -11,7 +11,7 @@ const Result = () => {
 
   useEffect(()=> {
     const fetchData = async () => {
-      const response = await getResult();
+      const response = await getResult(correctCount);
       setData(response.data);
       setResultImg(data.resultImg);
       setResultTitle(data.resultTitle);
@@ -28,7 +28,7 @@ const Result = () => {
     <ResultDom>
       <h1>당신의 점수는?</h1>
       <h1>{resultTitle}</h1>
-      <div>{resultImg}</div>
+      <img src={resultImg} alt="Result" />
     </ResultDom>
     <Button onClick={goHome}>🏠</Button>
     </>

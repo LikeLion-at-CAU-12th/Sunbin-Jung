@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getQuestion } from '../apis/apis';
+import Evaluate from './Evaluate';
 
 const Questions = ({ currentIndex }) => {
   const [data, setData] = useState([]);
-  const [answers, setAnswers] = useState([1, 1, 1, 1, 1]);
+  const [answers, setAnswers] = useState([0, 0, 0, 0, 0]);
   
   const handleClick = (questionIndex, choiceIndex) => {
-    const newAnswers = [...answers];
+    const newAnswers = [...answers +1];
     newAnswers[questionIndex] = choiceIndex;
     setAnswers(newAnswers);
   }
@@ -33,6 +34,7 @@ const Questions = ({ currentIndex }) => {
                   type="radio"
                   name={`${currentIndex}`} //currentIndex 중에
                   value={`${idx}`} //하나만 선택되도록
+                  checked={answers[currentIndex] === idx}//처음엔 1번 선택되있음
                   onChange={() => handleClick(currentIndex, idx)} // 선택 변경 시 handleClick 호출
                 />
                 {choice}
@@ -43,6 +45,7 @@ const Questions = ({ currentIndex }) => {
       ) : (
         <h1>불러오는 중 🐠</h1>
       )}
+      <Evaluate answers={answers}></Evaluate>
     </QuestionDom>
     )
 }
