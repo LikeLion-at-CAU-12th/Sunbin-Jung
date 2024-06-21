@@ -17,7 +17,12 @@ const Quiz = () => {
     }
 
     const goNext = () => {
-        setCurrentIndex(currentIndex + 1);
+        if(currentIndex===4){
+
+        }
+        else{
+            setCurrentIndex(currentIndex + 1);
+        }
     }
 
   return (
@@ -60,7 +65,7 @@ const Button = styled.button`
     border: none;
     border-radius: 25px;
     padding: 5px 15px;
-    font-size: 16px;
+    font-size: 1.5rem;
     cursor: pointer;
     display: flex;
     align-items: center;
