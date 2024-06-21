@@ -1,23 +1,41 @@
-import React, { useEffect, useState } from 'react'
-import { getResult } from '../apis/apis';
+import React, { useEffect, useState } from 'react';
+import { getResult, postResult } from '../apis/apis';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-const Result = (correctCount) => {
+const Result = ({ answers }) => {
   const navigate = useNavigate();
-  const [data,setData] = useState([]);
+  const [correctCount, setCorrectCount] = useState(null);
+  const [data, setData] = useState(null);
   const [resultImg, setResultImg] = useState('');
   const [resultTitle, setResultTitle] = useState('');
 
-  useEffect(()=> {
+  useEffect(() => {
     const fetchData = async () => {
-      const response = await getResult(correctCount);
-      setData(response.data);
+      const result = await postResult(answers);
+      setCorrectCount(result.correctCount);
+    };
+
+    fetchData();
+  }, [answers]);
+
+  useEffect(() => {
+    if (correctCount !== null) {
+      const fetchResultData = async () => {
+        const response = await getResult(correctCount);
+        setData(response.data);
+      };
+
+      fetchResultData();
+    }
+  }, [correctCount]);
+
+  useEffect(() => {
+    if (data) {
       setResultImg(data.resultImg);
       setResultTitle(data.resultTitle);
-    };
-    fetchData();
-  },[])
+    }
+  }, [data]);
 
   const goHome = () => {
     navigate("/");
@@ -25,17 +43,17 @@ const Result = (correctCount) => {
 
   return (
     <>
-    <ResultDom>
-      <h1>당신의 점수는?</h1>
-      <h1>{resultTitle}</h1>
-      <img src={resultImg} alt="Result" />
-    </ResultDom>
-    <Button onClick={goHome}>🏠</Button>
+      <ResultDom>
+        <h1>당신의 점수는?</h1>
+        <h1>{resultTitle}</h1>
+        <img src={resultImg} alt="Result" />
+      </ResultDom>
+      <Button onClick={goHome}>🏠</Button>
     </>
-  )
+  );
 };
 
-export default Result
+export default Result;
 
 const ResultDom = styled.div`
   font-family: 'Ownglyph_meetme-Rg';
@@ -53,20 +71,20 @@ const ResultDom = styled.div`
 `;
 
 const Button = styled.div`
-    font-size: 3rem;
-    background-color: pink;
-    color: #ffffff;
-    border: none;
-    border-radius: 25px;
-    padding: 5px 15px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  font-size: 3rem;
+  background-color: pink;
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  padding: 5px 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
-    &:hover {
-        background-color: #e98ab5;
-    }
-    &:active {
-        background-color: pink;
-    }
+  &:hover {
+      background-color: #e98ab5;
+  }
+  &:active {
+      background-color: pink;
+  }
 `;

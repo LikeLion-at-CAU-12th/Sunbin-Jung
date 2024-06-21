@@ -1,30 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getQuestion } from '../apis/apis';
-import Evaluate from './Evaluate';
 
 const Questions = ({ currentIndex }) => {
   const [data, setData] = useState([]);
   const [answers, setAnswers] = useState([0, 0, 0, 0, 0]);
   
   const handleClick = (questionIndex, choiceIndex) => {
-    const newAnswers = [...answers +1];
+    const newAnswers = [...answers];
     newAnswers[questionIndex] = choiceIndex;
     setAnswers(newAnswers);
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     const fetchData = async () => {
       const response = await getQuestion();
       setData(response.questions);
     };
 
     fetchData();
-  },[])
+  }, []);
 
   return (
     <QuestionDom>
-      { data.length > 0 ? (
+      {data.length > 0 ? (
         <>
           <Question>Q{currentIndex + 1} : {data[currentIndex].question}</Question>
           <ul>
@@ -32,10 +31,10 @@ const Questions = ({ currentIndex }) => {
               <ChoiceLabel key={idx}>
                 <ChoiceInput 
                   type="radio"
-                  name={`${currentIndex}`} //currentIndex 중에
-                  value={`${idx}`} //하나만 선택되도록
-                  checked={answers[currentIndex] === idx}//처음엔 1번 선택되있음
-                  onChange={() => handleClick(currentIndex, idx)} // 선택 변경 시 handleClick 호출
+                  name={`${currentIndex}`}
+                  value={`${idx}`}
+                  checked={answers[currentIndex] === idx}
+                  onChange={() => handleClick(currentIndex, idx)}
                 />
                 {choice}
               </ChoiceLabel>
@@ -45,12 +44,11 @@ const Questions = ({ currentIndex }) => {
       ) : (
         <h1>불러오는 중 🐠</h1>
       )}
-      <Evaluate answers={answers}></Evaluate>
     </QuestionDom>
-    )
+  );
 }
 
-export default Questions
+export default Questions;
 
 const QuestionDom = styled.div`
   display: flex;
