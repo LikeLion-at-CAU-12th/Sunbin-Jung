@@ -40,7 +40,7 @@ const Result = () => {
   return (
     <>
       <ResultDom>
-        <h1>당신의 점수는? {resultTitle}</h1>
+        <h1>당신의 점수는? {correctCount}점! {resultTitle}</h1>
         <img src={resultImg} alt="Result" />
       </ResultDom>
       <Button onClick={goHome}>🏠</Button>
