@@ -2,14 +2,13 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    font-family: 'Ownglyph_meetme-Rg';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
-    font-weight: lighter;
-    font-style: normal;
+  font-family: 'Ownglyph_UNZ-Rg';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/Ownglyph_UNZ-Rg.woff2') format('woff2');
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size : 20px;
 `;
 
 export const Button = styled.button`

@@ -15,7 +15,7 @@ const FormSection = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleSubmit = () => {
-      // setIsSubmited(true);
+      setIsSubmited(true);
       setIsModalOpen(true);
     }
 

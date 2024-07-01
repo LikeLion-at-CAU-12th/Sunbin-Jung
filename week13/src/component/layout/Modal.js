@@ -15,7 +15,7 @@ const Modal = ({ isOpen, onClose, onConfirm }) => {
   return (
     <ModalOverlay>
       <ModalContent mode={mode.modal}>
-        <h3>{`${userName} ${email} ${item}`}</h3>
+        <h2>{`이름 : ${userName} 메일 : ${email} 행운의 아이템 : ${item}`}</h3>
         <h2>입력한 정보가 맞습니까?</h2>
         <Buttons>
           <button onClick={onConfirm}>확인</button>
@@ -30,21 +30,22 @@ export default Modal;
 
 const ModalOverlay = styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 10rem;
+  left: 20rem;
+  right: 20rem;
+  bottom: 7rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  width:50%;
-  heigh:50%;
-  background: rgba(0, 0, 0.5);
+  border-radius: 8px;
+  background: #ffdab9;
+  text-align : center;
 `;
 
 const ModalContent = styled.div`
   padding: 2rem;
   border-radius: 8px;
+  text-align : center;
 `;
 
 const Buttons = styled.div`
