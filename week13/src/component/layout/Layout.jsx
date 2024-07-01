@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Button } from './common';
 import { ThemeColorContext } from '../../context/context';
 import { useRecoilValue } from 'recoil';
-import { emailAtom, isSubmitedAtom, userNameAtom } from '../../recoil/atom';
+import { emailAtom, isSubmitedAtom, luckyItemAtom, userNameAtom } from '../../recoil/atom';
 
 const Layout = ({children}) => {
     const context = useContext(ThemeColorContext);
@@ -11,6 +11,7 @@ const Layout = ({children}) => {
     const userName = useRecoilValue(userNameAtom);
     const email = useRecoilValue(emailAtom);
     const isSubmit = useRecoilValue(isSubmitedAtom);
+    const item = useRecoilValue(luckyItemAtom);
 
     const handleMode = (e)=>{
         const value = e.target.value;
@@ -28,12 +29,12 @@ const Layout = ({children}) => {
     <Wrapper>
         <Header mode={mode.main}>
             <Button value='blue' onClick={handleMode}>🩵</Button>
-            <Button value='green' onClick={handleMode}>🍀</Button>
-            <Button value='pink' onClick={handleMode}>🎀</Button>
+            <Button value='green' onClick={handleMode}>💚</Button>
+            <Button value='pink' onClick={handleMode}>🩷</Button>
         </Header>
         <div>{children}</div>
         <Footer mode={mode.main}>
-            {isSubmit ? `${userName}의 공간 🛋️ ${email}` : 'made by sunbeen'}
+            {isSubmit ? `${userName}의 공간 🛋️ ${email} ${item}` : 'made by sunbeen'}
             </Footer>
     </Wrapper>
     </ThemeColorContext.Provider>

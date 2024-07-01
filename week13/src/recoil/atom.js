@@ -10,6 +10,11 @@ export const emailAtom = atom({
     default : "likelion@cau.ac.kr",
 });
 
+export const luckyItemAtom = atom({
+    key : 'luckyitem',
+    default : "💸"
+})
+
 export const isSubmitedAtom = atom({
     key : 'isSubmited',
     default : false,
