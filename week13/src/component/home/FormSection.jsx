@@ -1,11 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Button, Wrapper } from '../layout/common';
 import Form from './Form';
 import { ThemeColorContext } from '../../context/context';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { isSubmitedAtom } from '../../recoil/atom';
-import EmojiPicker from 'emoji-picker-react'
 import styled from 'styled-components';
 
 const FormSection = () => {
@@ -24,9 +23,9 @@ const FormSection = () => {
             <Form type='email' inputType='이메일'/>
             <h3>행운의 아이템</h3>
             <RadioSection>
-              <Form type='radio' inputType='💸' />
-              <Form type='radio' inputType='🍀' />
-              <Form type='radio' inputType='🐶' />
+              <Form type="radio" inputType='💸' name="luckyItem"/>
+              <Form type="radio" inputType='🍀' name="luckyItem"/>
+              <Form type="radio" inputType='🐶' name="luckyItem"/>
             </RadioSection>
             <Button mode={mode.button} onClick={handleBtn}>로그인</Button>
         </Wrapper>
@@ -37,5 +36,5 @@ export default FormSection;
 
 const RadioSection = styled.div`
   display : flex;
-  flex-direction : column;
-`
+  font-size : 2rem;
+`;

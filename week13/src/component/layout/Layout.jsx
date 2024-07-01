@@ -64,9 +64,10 @@ const Header = styled.div`
 `;
 
 const Footer = styled.div`
-    font-family: 'Ownglyph_meetme-Rg';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
-    font-weight: lighter;
+
+    font-family: 'Ownglyph_UNZ-Rg';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/Ownglyph_UNZ-Rg.woff2') format('woff2');
+    font-weight: normal;
     font-style: normal;
   display: flex;
   height: 50px;
