@@ -28,14 +28,18 @@ const Layout = ({children}) => {
     <ThemeColorContext.Provider value={mode}>
     <Wrapper>
         <Header mode={mode.main}>
+            {isSubmit ? `${item.repeat(3)}` : ''}
             <Button value='blue' onClick={handleMode}>🩵</Button>
+            {isSubmit ? `${item.repeat(3)}` : ''}
             <Button value='green' onClick={handleMode}>💚</Button>
+            {isSubmit ? `${item.repeat(3)}` : ''}
             <Button value='pink' onClick={handleMode}>🩷</Button>
+            {isSubmit ? `${item.repeat(3)}` : ''}
         </Header>
         <div>{children}</div>
         <Footer mode={mode.main}>
-            {isSubmit ? `${userName}의 공간 🛋️ ${email} ${item}` : 'made by sunbeen'}
-            </Footer>
+            {isSubmit ? `${item.repeat(10)} ${userName}의 공간 🛋️ ${email} ${item.repeat(10)}` : 'made by sunbeen'}
+        </Footer>
     </Wrapper>
     </ThemeColorContext.Provider>
   )

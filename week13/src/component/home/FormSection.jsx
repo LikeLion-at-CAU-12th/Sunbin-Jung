@@ -1,20 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Wrapper } from '../layout/common';
 import Form from './Form';
 import { ThemeColorContext } from '../../context/context';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import Modal from '../layout/Modal';
 import { useSetRecoilState } from 'recoil';
 import { isSubmitedAtom } from '../../recoil/atom';
-import styled from 'styled-components';
 
 const FormSection = () => {
     const mode = useContext(ThemeColorContext);
     const navigate = useNavigate();
     const setIsSubmited = useSetRecoilState(isSubmitedAtom);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleBtn = () => {
-        setIsSubmited(true);
-        navigate("/mypage");
+    const handleSubmit = () => {
+      setIsSubmited(true);
+      setIsModalOpen(true);
+    }
+
+    const handleConfirm = () => {
+      navigate("/mypage");
+    }
+
+    const handleClose = () => {
+        setIsModalOpen(false);
     }
 
     return (
@@ -27,7 +37,8 @@ const FormSection = () => {
               <Form type="radio" inputType='🍀' name="luckyItem"/>
               <Form type="radio" inputType='🐶' name="luckyItem"/>
             </RadioSection>
-            <Button mode={mode.button} onClick={handleBtn}>로그인</Button>
+            <Button mode={mode.button} onClick={handleSubmit}>로그인</Button>
+            <Modal isOpen={isModalOpen} onConfirm={handleConfirm} onClose={handleClose} />
         </Wrapper>
     );
 }
