@@ -15,7 +15,7 @@ const Modal = ({ isOpen, onClose, onConfirm }) => {
   return (
     <ModalOverlay>
       <ModalContent mode={mode.modal}>
-        <h2>{`이름 : ${userName} 메일 : ${email} 행운의 아이템 : ${item}`}</h3>
+        <h2>{`이름 : ${userName} 메일 : ${email} 행운의 아이템 : ${item}`}</h2>
         <h2>입력한 정보가 맞습니까?</h2>
         <Buttons>
           <button onClick={onConfirm}>확인</button>

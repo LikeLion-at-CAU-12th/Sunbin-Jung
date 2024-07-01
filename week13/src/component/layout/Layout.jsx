@@ -76,4 +76,6 @@ const Footer = styled.div`
   background-color: ${(props) => props.mode};
   font-size: 2rem;
   color: #565151;
+  font-family: 'Ownglyph_UNZ-Rg';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/Ownglyph_UNZ-Rg.woff2') format('woff2');
 `;

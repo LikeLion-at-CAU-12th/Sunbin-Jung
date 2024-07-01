@@ -15,11 +15,12 @@ const FormSection = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleSubmit = () => {
-      setIsSubmited(true);
+      setIsSubmited(false);
       setIsModalOpen(true);
     }
 
     const handleConfirm = () => {
+      setIsSubmited(true);
       navigate("/mypage");
     }
 

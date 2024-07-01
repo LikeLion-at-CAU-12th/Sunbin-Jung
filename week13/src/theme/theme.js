@@ -2,7 +2,7 @@
 
 const blueTheme = {
     color: "blue",
-    main: "#3AB2FF",
+    main: "#add8e6",
     sub: "#C5F8FF",
     button: "#6B95BC",
   };
