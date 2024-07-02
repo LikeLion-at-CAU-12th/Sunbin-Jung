@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ThemeColorContext } from '../../context/context';
 import { useRecoilValue } from 'recoil';
 import { emailAtom, luckyItemAtom, userNameAtom } from '../../recoil/atom';
+import { Button } from './common';
 
 const Modal = ({ isOpen, onClose, onConfirm }) => {
   const mode = useContext(ThemeColorContext);
@@ -15,11 +16,11 @@ const Modal = ({ isOpen, onClose, onConfirm }) => {
   return (
     <ModalOverlay mode={mode.main}>
       <ModalContent>
-        <h2>{`이름 : ${userName} 메일 : ${email} 행운의 아이템 : ${item}`}</h2>
-        <h2>입력한 정보가 맞습니까?</h2>
+        <h3>{`이름 : ${userName} 메일 : ${email} 행운의 아이템 : ${item}`}</h3>
+        <h3>입력한 정보가 맞습니까?</h3>
         <Buttons>
-          <button onClick={onConfirm}>확인</button>
-          <button onClick={onClose}>취소</button>
+          <Button mode={mode.sub} onClick={onConfirm}>확인</Button>
+          <Button mode={mode.sub} onClick={onClose}>취소</Button>
         </Buttons>
       </ModalContent>
     </ModalOverlay>
