@@ -13,8 +13,8 @@ const Modal = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
 
   return (
-    <ModalOverlay>
-      <ModalContent mode={mode.modal}>
+    <ModalOverlay mode={mode.main}>
+      <ModalContent>
         <h2>{`이름 : ${userName} 메일 : ${email} 행운의 아이템 : ${item}`}</h2>
         <h2>입력한 정보가 맞습니까?</h2>
         <Buttons>
@@ -29,6 +29,7 @@ const Modal = ({ isOpen, onClose, onConfirm }) => {
 export default Modal;
 
 const ModalOverlay = styled.div`
+  display : flex;
   position: fixed;
   top: 10rem;
   left: 20rem;
@@ -40,6 +41,7 @@ const ModalOverlay = styled.div`
   border-radius: 8px;
   background: #ffdab9;
   text-align : center;
+  background-color: ${(props) => props.mode};
 `;
 
 const ModalContent = styled.div`
