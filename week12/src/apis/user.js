@@ -1,26 +1,26 @@
 import axios from "axios";
 import { getAuthAxios } from "./authAxios";
 
-// const baseURL = `http://yangzzago.kro.kr:3000`;
+const baseURL = `http://yangzzago.kro.kr:3000`;
 
-// export const signUp = async(id,pw,name,age) => {
-//     const result = await axios.post(`${baseURL}/signup`,{
-//         id,
-//         pw,
-//         name,
-//         age,
-//     });
-//     return result;
-// };
+export const signUp = async(id,pw,name,age) => {
+    const result = await axios.post(`${baseURL}/signup`,{
+        id,
+        pw,
+        name,
+        age,
+    });
+    return result;
+};
 
-// export const login = async(id,pw) => {
-//     const result = await axios.post(`${baseURL}/login`, {
-//         id,
-//         pw,
-//     });
-//     console.log(result.data);
-//     return result.data;
-// };
+export const login = async(id,pw) => {
+    const result = await axios.post(`${baseURL}/login`, {
+        id,
+        pw,
+    });
+    console.log(result.data);
+    return result.data;
+};
 
 export const getMyPage = async() => {
     const authAxios = getAuthAxios(localStorage.getItem("access"));

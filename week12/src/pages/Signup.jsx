@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-// import { signUp } from '../apis/user';
+import { signUp } from '../apis/user';
 
 const Signup = () => {
     const [id,setId] = useState();
