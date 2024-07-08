@@ -19,7 +19,7 @@ const Home = () => {
       navigate('/quiz');
     }else{
       alert('로그인이 필요한 기능입니다');
-      navigate('/login');
+      navigate("/login");
     }
   };
 
@@ -45,14 +45,14 @@ const Home = () => {
     </MenuDom>
     <Footer onClick={handleClick}>
         {isLoggedIn ? '로그아웃' : '로그인'}
-      </Footer>
+    </Footer>
     </>
   )
 }
 
 export default Home
 
-const Footer = styled(Link)`
+const Footer = styled.div`
   text-decoration: none;
   color : black;
   font-size : 20px;
@@ -74,7 +74,7 @@ const Title = styled.div`
   font-weight: 700;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

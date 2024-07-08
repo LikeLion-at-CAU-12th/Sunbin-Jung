@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
@@ -24,10 +24,10 @@ const Login = () => {
     useEffect(()=> {
       const token = localStorage.getItem('access');
       if(token){
-        router('/mypage');
+        router('/');
       }
     },[router])
-    
+
   return (
     <>
         <Wrapper>

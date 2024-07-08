@@ -26,7 +26,7 @@ const Signup = () => {
 
     const onClick = async() => {
         await signUp(id,pw,name,age);
-        router("/");
+        router("/login");
     }
 
 
