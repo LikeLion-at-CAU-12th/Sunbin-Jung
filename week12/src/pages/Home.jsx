@@ -1,9 +1,37 @@
 //rafce 누르면 나옴
 import styled from 'styled-components'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const[isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('access');
+    if(token) {
+      setIsLoggedIn(true);
+    }
+  },[]);
+
+  const handleQuiz = () => {
+    if(isLoggedIn) {
+      navigate('/quiz');
+    }else{
+      alert('로그인이 필요한 기능입니다');
+      navigate('/login');
+    }
+  };
+
+  const handleClick = () => {
+    if(isLoggedIn) {
+      localStorage.removeItem('access');
+      localStorage.removeItem('refresh');
+      setIsLoggedIn(false);
+    } else {
+      navigate('/login');
+    }
+  }
   return (
     <>
     <MenuDom>
@@ -11,11 +39,13 @@ const Home = () => {
         <StyledLink to="/books">
             멋쟁이의 추천 도서
         </StyledLink>
-        <StyledLink to="/quiz">
+        <StyledLink onClick={handleQuiz}>
            머쨍이 사자처럼 퀴즈
         </StyledLink>
     </MenuDom>
-    <Footer to="/login">로그인</Footer>
+    <Footer onClick={handleClick}>
+        {isLoggedIn ? '로그아웃' : '로그인'}
+      </Footer>
     </>
   )
 }

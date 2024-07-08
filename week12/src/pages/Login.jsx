@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
+import { login } from '../apis/user';
 
 const Login = () => {
     const [id,onChangeId] = useForm();
@@ -11,13 +12,22 @@ const Login = () => {
 
     const onClick = async() => {
         try{
-            // const result = await login(id,pw);
-            // localStorage.setItem("refresh",result.refreshToken);
+            const result = await login(id,pw);
+            localStorage.setItem("access",result.accessToken);
+            localStorage.setItem("refresh",result.refreshToken);
             router("/");
         }catch (error) {
             alert("회원정보가 일치하지 않습니다");
         }
     }
+
+    useEffect(()=> {
+      const token = localStorage.getItem('access');
+      if(token){
+        router('/mypage');
+      }
+    },[router])
+    
   return (
     <>
         <Wrapper>
