@@ -14,6 +14,10 @@ const Home = () => {
     }
   },[]);
 
+  const handleBooks = () => {
+    navigate('/books');
+  }
+  
   const handleQuiz = () => {
     if(isLoggedIn) {
       navigate('/quiz');
@@ -32,11 +36,12 @@ const Home = () => {
       navigate('/login');
     }
   }
+
   return (
     <>
     <MenuDom>
         <Title>🩵 W E E K 1 2 🩵</Title>
-        <StyledLink to="/books">
+        <StyledLink onClick={handleBooks}>
             멋쟁이의 추천 도서
         </StyledLink>
         <StyledLink onClick={handleQuiz}>
