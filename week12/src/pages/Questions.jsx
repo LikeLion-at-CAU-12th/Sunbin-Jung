@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getQuestion } from '../apis/apis';
-import Result from './Result';
 import { useNavigate } from 'react-router-dom';
 
 const Questions = ({ currentIndex }) => {
